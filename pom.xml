@@ -60,7 +60,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <github.global.server>github</github.global.server>
-        <gwt.version>2.9.0</gwt.version>
+        <gwt.version>2.9.3</gwt.version>
     </properties>
 
     <modules>
@@ -70,13 +70,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.google.gwt</groupId>
-                <artifactId>gwt</artifactId>
-                <version>${gwt.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -189,6 +183,16 @@
     </build>
 
     <profiles>
+        <profile>
+            <id>cangling</id>
+            <distributionManagement>
+                <repository>
+                    <name>${REPOSITORY_ID}</name>
+                    <id>${REPO_ID}</id>
+                    <url>${REPO_URL}</url>
+                </repository>
+            </distributionManagement>
+        </profile>
         <profile>
             <id>release</id>
             <build>

@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.github.tdesjardins</groupId>
-        <artifactId>gwt-ol3-parent</artifactId>
-        <version>HEAD-SNAPSHOT</version>
-    </parent>
+
+    <groupId>com.github.tdesjardins</groupId>
     <artifactId>gwt-ol3</artifactId>
+    <version>8.0.0</version>
     <packaging>gwt-lib</packaging>
+    <properties>
+        <gwt.version>2.9.3</gwt.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>com.google.gwt</groupId>
+            <groupId>org.gwtproject</groupId>
             <artifactId>gwt-user</artifactId>
+            <version>${gwt.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.google.gwt</groupId>
+            <groupId>org.gwtproject</groupId>
             <artifactId>gwt-dev</artifactId>
+            <version>${gwt.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
@@ -36,25 +45,37 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
+
+    <profiles>
+        <profile>
+            <id>cangling</id>
+            <distributionManagement>
+                <repository>
+                    <name>${REPOSITORY_ID}</name>
+                    <id>${REPO_ID}</id>
+                    <url>${REPO_URL}</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <skipTests>true</skipTests>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
+                <version>1.0.1</version>
+                <extensions>true</extensions>
                 <configuration>
                     <moduleName>ol.GwtOL</moduleName>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+
 </project>

@@ -8,15 +8,21 @@
     </parent>
     <artifactId>gwt-ol3-demo</artifactId>
     <packaging>gwt-app</packaging>
-
+    <properties>
+        <gwt.version>2.9.3</gwt.version>
+    </properties>
     <dependencies>
         <dependency>
-            <groupId>com.google.gwt</groupId>
+            <groupId>org.gwtproject</groupId>
             <artifactId>gwt-user</artifactId>
+            <version>${gwt.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.google.gwt</groupId>
+            <groupId>org.gwtproject</groupId>
             <artifactId>gwt-dev</artifactId>
+            <version>${gwt.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
